@@ -24,3 +24,32 @@ VALUES
     (13, 'Slow Cooker', 'Appliances', 49.95, 30, 4.7),
     (14, 'Cutlery Set', 'Kitchen Supplies', 34.50, 40, 4.4),
     (15, 'Cozy Throw Blanket', 'Furnishings', 24.99, 100, 4.2);
+
+1. Write a SQL query that orders the items by price.
+2. Write your own SQL query that will show a statistic about the item prices, like a sum, average, minimum, maximum, or count.
+3. Write your own SQL query that will show a statistic about the price for items in the category of "Kitchen Supplies".
+4. How many air purifiers are in stock?
+
+SQL CODE FOR PROMPTS ABOVE
+
+1.
+SELECT (item_name), price
+FROM superstore
+ORDER BY price;
+
+2.
+SELECT AVG (average_rating), item_name
+FROM superstore
+Group BY item_name;
+
+3.
+SELECT AVG(price) AS average_price, item_name
+FROM superstore
+WHERE category = 'Kitchen Supplies'
+GROUP BY item_name;
+
+4.
+SELECT SUM(stock_quantity), item_name
+FROM superstore
+WHERE category = 'Electronics'
+GROUP BY item_name;
